@@ -1,2 +1,3 @@
 # rivaillekyotaka.github.io
-Here is my personnal website
+Here is my personnal website...
+I'm Rivaille Kyotaka (pseudo) and welcome to this GIS website
