@@ -1,204 +1,1434 @@
-<!DOCTYPE HTML>
-<!--
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Wendtoen Céphas Dimitri KOALAGA</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimitri KOALAGA - Ingénieur Hydraulique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0EA5E9;
+            --secondary-blue: #3B82F6;
+            --accent-blue: #06B6D4;
+            --primary-green: #10B981;
+            --secondary-green: #059669;
+            --accent-green: #34D399;
+            --dark: #0F172A;
+            --darker: #020617;
+            --light: #F8FAFC;
+            --glass: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --text-light: rgba(255, 255, 255, 0.95);
+            --text-secondary: rgba(255, 255, 255, 0.7);
+        }
 
-		<!-- Header -->
-			<div id="header">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-				<div class="top">
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 25%, #0F172A 50%, #064E3B 75%, #0F172A 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-					<!-- Logo -->
-						<id="logo">
-							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
-							<h1 id="title">Wendtoen Céphas Dimitri</h1>
-							<p>Bachelor in Hydraulic Engineering</p>
-						</div>
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
-								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
-								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
-							</ul>
-						</nav>
+        /* Cursor Effect */
+        .cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            z-index: 9999;
+            mix-blend-mode: screen;
+        }
 
-				</div>
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-				<div class="bottom">
+        header.scrolled {
+            padding: 0.8rem 0;
+            background: rgba(15, 23, 42, 0.85);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
 
-					<!-- Social Icons -->
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
+        nav {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-				</div>
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: all 0.3s ease;
+        }
 
-			</div>
+        .logo:hover {
+            transform: scale(1.05);
+        }
 
-		<!-- Main -->
-			<div id="main">
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
 
-				<!-- Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container">
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
 
-							<header>
-								<h2 class="alt">Hi! I'm <strong>Dimitri</strong>, An <a href="http://html5up.net/license">Hydraulic</a> Engineer<br />
-								with experience in water supply using GIS, irrigation, and hydraulic modeling. <a href="http://html5up.net">I am transitioning toward geomatics and GIS to develop data-driven solutions </a>applied to environmental management, water systems, and infrastructure projects.</h2>
-								<p><br>
-							</header>
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
 
-							<footer>
-								<a href="#portfolio" class="button scrolly">Magna Aliquam</a>
-							</footer>
+        .nav-links a:hover {
+            color: white;
+        }
 
-						</div>
-					</section>
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-				<!-- Portfolio -->
-					<section id="portfolio" class="two">
-						<div class="container">
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
 
-							<header>
-								<h2>Portfolio</h2>
-							</header>
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
 
-							<p>Vitae natoque dictum etiam semper magnis enim feugiat convallis convallis
-							egestas rhoncus ridiculus in quis risus amet curabitur tempor orci penatibus.
-							Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis
-							fusce hendrerit lacus ridiculus.</p>
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 20s ease-in-out infinite;
+        }
 
-							<div class="row">
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-										<header>
-											<h3>Ipsum Feugiat</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-										<header>
-											<h3>Rhoncus Semper</h3>
-										</header>
-									</article>
-								</div>
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-										<header>
-											<h3>Magna Nullam</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-										<header>
-											<h3>Natoque Vitae</h3>
-										</header>
-									</article>
-								</div>
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-										<header>
-											<h3>Dolor Penatibus</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-										<header>
-											<h3>Orci Convallis</h3>
-										</header>
-									</article>
-								</div>
-							</div>
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--primary-blue), transparent);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
 
-						</div>
-					</section>
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--primary-green), transparent);
+            top: 60%;
+            right: 15%;
+            animation-delay: 5s;
+        }
 
-				<!-- About Me -->
-					<section id="about" class="three">
-						<div class="container">
+        .orb-3 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--accent-blue), transparent);
+            bottom: 20%;
+            left: 50%;
+            animation-delay: 10s;
+        }
 
-							<header>
-								<h2>About Me</h2>
-							</header>
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
 
-							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 950px;
+            padding: 2rem;
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-							<p>Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
-							ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
-							laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
-							parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
-							dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
-							ornare iaculis.</p>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-						</div>
-					</section>
+        .hero-label {
+            font-size: 1.05rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
+        }
 
-				<!-- Contact -->
-					<section id="contact" class="four">
-						<div class="container">
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.05;
+            letter-spacing: -2.5px;
+            background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s backwards;
+        }
 
-							<header>
-								<h2>Contact</h2>
-							</header>
+        .hero .subtitle {
+            font-size: clamp(1.3rem, 3vw, 1.9rem);
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            opacity: 0.85;
+            letter-spacing: -0.3px;
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.4s backwards;
+        }
 
-							<p>Elementum sem parturient nulla quam placerat viverra
-							mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
-							donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
-							orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>
+        .hero .description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0.75;
+            max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            letter-spacing: 0.1px;
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s backwards;
+        }
 
-							<form method="post" action="#">
-								<div class="row">
-									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
-									<div class="col-12">
-										<textarea name="message" placeholder="Message"></textarea>
-									</div>
-									<div class="col-12">
-										<input type="submit" value="Send Message" />
-									</div>
-								</div>
-							</form>
+        .cta-buttons {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.6s backwards;
+        }
 
-						</div>
-					</section>
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            font-size: 1.05rem;
+            letter-spacing: 0.3px;
+            position: relative;
+            overflow: hidden;
+        }
 
-			</div>
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
 
-		<!-- Footer -->
-			<div id="footer">
+        .btn:hover::before {
+            left: 100%;
+        }
 
-				<!-- Copyright -->
-					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3);
+        }
 
-			</div>
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(14, 165, 233, 0.4);
+        }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        .btn-outline {
+            background: var(--glass);
+            border: 1.5px solid var(--glass-border);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
 
-	</body>
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 7rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 4.5rem;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 0.95rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(2.8rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            letter-spacing: -1.8px;
+            background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 255, 255, 0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-description {
+            font-size: 1.25rem;
+            opacity: 0.7;
+            max-width: 750px;
+            margin: 0 auto;
+            font-weight: 400;
+            letter-spacing: 0.1px;
+            line-height: 1.7;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            padding: 2.8rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .glass-card:hover::before {
+            left: 100%;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(14, 165, 233, 0.4);
+            box-shadow: 0 25px 70px rgba(14, 165, 233, 0.25),
+                        0 10px 30px rgba(16, 185, 129, 0.15);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.85;
+            letter-spacing: 0.1px;
+        }
+
+        .about-text p {
+            margin-bottom: 1.8rem;
+        }
+
+        .about-text strong {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+
+        .stat-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-blue), var(--primary-green));
+            transform: scaleY(0);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: bottom;
+        }
+
+        .stat-card:hover::after {
+            transform: scaleY(1);
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(12px);
+            border-color: rgba(14, 165, 233, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1.5px;
+        }
+
+        .stat-label {
+            font-size: 1.05rem;
+            opacity: 0.75;
+            letter-spacing: 0.2px;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 1.1rem;
+            opacity: 0.85;
+            letter-spacing: 0.2px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skill-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card li:hover {
+            opacity: 1;
+            padding-left: 2rem;
+            color: var(--primary-blue);
+        }
+
+        .skill-card li:hover::before {
+            color: var(--primary-blue);
+        }
+
+        .skill-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Experience Section */
+        .timeline {
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 35px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary-blue) 0%, var(--primary-green) 50%, var(--accent-blue) 100%);
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 90px;
+            margin-bottom: 4rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 8px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            border: 4px solid var(--dark);
+            border-radius: 50%;
+            box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.2),
+                        0 0 20px rgba(14, 165, 233, 0.3);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.3);
+            box-shadow: 0 0 0 8px rgba(14, 165, 233, 0.3),
+                        0 0 30px rgba(14, 165, 233, 0.5);
+        }
+
+        .timeline-period {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.7rem;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .timeline-company {
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.2px;
+        }
+
+        .timeline-item ul {
+            margin-top: 1.2rem;
+            margin-left: 1.5rem;
+            opacity: 0.85;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.8rem;
+            line-height: 1.7;
+            letter-spacing: 0.1px;
+            font-size: 1.05rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(16, 185, 129, 0.15));
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-blue);
+        }
+
+        .impact {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(16, 185, 129, 0.1));
+            border-left: 4px solid;
+            border-image: linear-gradient(180deg, var(--primary-blue), var(--primary-green)) 1;
+            border-radius: 10px;
+            font-style: italic;
+            opacity: 0.9;
+            letter-spacing: 0.2px;
+            line-height: 1.7;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .project-card p {
+            line-height: 1.8;
+            margin-bottom: 1.8rem;
+            opacity: 0.85;
+            letter-spacing: 0.1px;
+            font-size: 1.05rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .contact-item {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-radius: 18px;
+            border: 1px solid var(--glass-border);
+            padding: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1.3rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(10px);
+            border-color: rgba(14, 165, 233, 0.4);
+            box-shadow: 0 10px 40px rgba(14, 165, 233, 0.2);
+        }
+
+        .contact-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            box-shadow: 0 5px 20px rgba(14, 165, 233, 0.3);
+        }
+
+        .contact-item strong {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            margin-bottom: 0.3rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 0.2px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-blue);
+        }
+
+        .contact-form {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.2px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(14, 165, 233, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            text-align: center;
+            padding: 3.5rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            width: 52px;
+            height: 52px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4);
+        }
+
+        /* Research Note - Subtle */
+        .research-note {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(16, 185, 129, 0.08));
+            border-left: 3px solid;
+            border-image: linear-gradient(180deg, var(--primary-blue), var(--primary-green)) 1;
+            padding: 1.5rem 2rem;
+            border-radius: 14px;
+            margin: 2rem 0;
+            font-size: 1.05rem;
+            opacity: 0.9;
+            letter-spacing: 0.2px;
+            line-height: 1.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 5rem 1.5rem;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 18px;
+            }
+
+            .timeline-item {
+                padding-left: 55px;
+            }
+
+            .timeline-item::before {
+                left: 10px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 35px rgba(14, 165, 233, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Dimitri KOALAGA</a>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-label">Ingénieur Hydraulique</div>
+            <h1>Wendtoen Céphas<br>Dimitri KOALAGA</h1>
+            <p class="subtitle">Spécialiste en Hydraulique, SIG & Analyse de Données</p>
+            <p class="description">
+                Expert en conception et supervision de projets d'eau potable et d'irrigation, avec une forte expertise 
+                en Systèmes d'Information Géographique, modélisation hydraulique et analyse de données avancée.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Me contacter</a>
+                <a href="#experience" class="btn btn-outline">Voir mon parcours</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Profil</div>
+                <h2 class="section-title">À propos</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>
+                        Ingénieur en hydraulique rurale avec <strong>12 mois d'expérience</strong> combinant terrain et bureau d'études, 
+                        je transforme les besoins techniques en solutions concrètes et optimisées pour les projets d'eau 
+                        potable et d'irrigation au Burkina Faso.
+                    </p>
+                    <p>
+                        Mon expertise couvre l'ensemble du cycle projet : de l'analyse initiale à la mise en œuvre, en passant 
+                        par la conception, le dimensionnement et la supervision. J'utilise des outils avancés de <strong>SIG</strong> (ArcGIS, QGIS), 
+                        de <strong>modélisation hydraulique</strong> (EPANET, OUAIP) et d'<strong>analyse de données</strong> (Python, Machine Learning) pour optimiser 
+                        chaque projet.
+                    </p>
+                    <div class="research-note">
+                        Passionné par l'intersection entre hydraulique et technologies géospatiales, je développe continuellement 
+                        mes compétences en géomatique et analyse de données pour contribuer à l'innovation dans la gestion des 
+                        ressources en eau.
+                    </div>
+                </div>
+                <div class="stats-grid fade-in">
+                    <div class="stat-card">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Mois d'expérience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">183</span>
+                        <span class="stat-label">Forages analysés</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">33%</span>
+                        <span class="stat-label">Amélioration irrigation</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">1100+</span>
+                        <span class="stat-label">Personnes impactées</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="competences">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Expertise</div>
+                <h2 class="section-title">Compétences</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="glass-card skill-card fade-in">
+                    <h3>SIG & Géomatique</h3>
+                    <ul>
+                        <li>ArcGIS (ArcMap, ArcGIS Pro)</li>
+                        <li>QGIS - Analyse spatiale</li>
+                        <li>AutoCAD - DAO technique</li>
+                        <li>Cartographie & modélisation spatiale</li>
+                        <li>Télédétection & imagerie satellite</li>
+                        <li>Géoréférencement & GPS</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card skill-card fade-in">
+                    <h3>Analyse de Données & ML</h3>
+                    <ul>
+                        <li>Python (Pandas, NumPy, Scikit-Learn)</li>
+                        <li>GeoPandas, Shapely - Données géospatiales</li>
+                        <li>Machine Learning & régression</li>
+                        <li>Analyse en Composantes Principales (ACP)</li>
+                        <li>Visualisation de données (Matplotlib, Plotly)</li>
+                        <li>Traitement statistique avancé</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card skill-card fade-in">
+                    <h3>Hydraulique & Modélisation</h3>
+                    <ul>
+                        <li>Conception de réseaux AEP</li>
+                        <li>Systèmes d'irrigation</li>
+                        <li>EPANET - Modélisation hydraulique 2D</li>
+                        <li>OUAIP - Modélisation hydrogéologique</li>
+                        <li>Dimensionnement d'équipements</li>
+                        <li>Supervision de chantier</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card skill-card fade-in">
+                    <h3>Programmation & Outils</h3>
+                    <ul>
+                        <li>C++ - Programmation système</li>
+                        <li>Python - Analyse & automation</li>
+                        <li>SQL - Gestion de bases de données</li>
+                        <li>Git - Versioning & collaboration</li>
+                        <li>Microsoft Office Suite avancé</li>
+                        <li>Rédaction technique (TDR, rapports)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Parcours</div>
+                <h2 class="section-title">Expérience professionnelle</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-period">Janvier – Juin 2025 (6 mois)</div>
+                    <h3>Stagiaire - Projets PAPPACER et BEOG-GNINGA</h3>
+                    <p class="timeline-company">Centre Écologique Albert Schweitzer du Burkina Faso (CEAS-BF)</p>
+                    <ul>
+                        <li>Réalisation de tests de pompage sur 4 sites maraichers pour évaluer rendements et performances</li>
+                        <li>Élaboration d'un cahier guide pour l'optimisation des systèmes d'irrigation</li>
+                        <li>Rédaction de documents techniques (PV, TDR, contrats)</li>
+                        <li>Formation des exploitants sur fertilisants et pesticides biologiques</li>
+                        <li>Collaboration avec exploitants pour améliorer l'efficacité hydrique</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">SIG</span>
+                        <span class="tech-tag">Cartographie</span>
+                        <span class="tech-tag">Analyse de données</span>
+                        <span class="tech-tag">Irrigation</span>
+                    </div>
+                    <div class="impact">
+                        Impact : Amélioration de 33% des performances d'irrigation et de rendement dans la commune de Ténado
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-period">Mars – Mai 2024 (3 mois)</div>
+                    <h3>Stagiaire Analyste de Données</h3>
+                    <p class="timeline-company">Direction Régionale de l'Eau et de l'Assainissement du Nakambé</p>
+                    <ul>
+                        <li>Collecte et analyse de données sur 183 forages d'eaux souterraines</li>
+                        <li>Traitement et modélisation avec Python (Pandas, Scikit-Learn, GeoPandas)</li>
+                        <li>Application de régression linéaire et ACP pour identifier variables pertinentes</li>
+                        <li>Cartographie SIG et visualisation des résultats</li>
+                        <li>Synthèse pour optimisation de la planification des forages</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">SIG</span>
+                        <span class="tech-tag">Géostatistique</span>
+                    </div>
+                    <div class="impact">
+                        Impact : Identification des zones à forte productivité et des zones à risque de pollution
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-period">Avril – Mai 2023 (2 mois)</div>
+                    <h3>Stagiaire Concepteur de Réseaux</h3>
+                    <p class="timeline-company">Direction Régionale de l'Eau et de l'Assainissement du Nakambé</p>
+                    <ul>
+                        <li>Étude de faisabilité mini-système AEP (Boutaya, Province du Boulgou)</li>
+                        <li>Analyse des besoins et étude d'organisation territoriale</li>
+                        <li>Conception de réseau gravitaire d'adduction et distribution</li>
+                        <li>Cartographie et modélisation (ArcGIS, EPANET, AutoCAD)</li>
+                        <li>Vérification par simulations numériques</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">EPANET</span>
+                        <span class="tech-tag">ArcGIS</span>
+                        <span class="tech-tag">AutoCAD</span>
+                        <span class="tech-tag">Modélisation 2D</span>
+                    </div>
+                    <div class="impact">
+                        Impact : Couverture de 100% du besoin en eau du village de Boutaya (1100 habitants)
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-period">2 mois</div>
+                    <h3>Stagiaire Technique</h3>
+                    <p class="timeline-company">Entreprise EBEN-EZER</p>
+                    <ul>
+                        <li>Participation aux travaux de réalisation de 5 postes d'eau autonomes</li>
+                        <li>Supervision de réalisation de 6 forages à gros et moyen débit</li>
+                        <li>Conduite de 21 essais de pompages simplifiés et 2 essais longue durée</li>
+                        <li>Géoréférencement et cartographie des ouvrages</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Supervision chantier</span>
+                        <span class="tech-tag">GPS</span>
+                        <span class="tech-tag">Cartographie</span>
+                    </div>
+                    <div class="impact">
+                        Impact : Amélioration de l'accès à l'eau potable pour plusieurs localités du Kouritenga
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projets">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Réalisations</div>
+                <h2 class="section-title">Projets clés</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="glass-card project-card fade-in">
+                    <h3>Analyse Prédictive des Aquifères</h3>
+                    <p>
+                        Analyse de 183 forages avec Python et machine learning pour créer une cartographie prédictive 
+                        de productivité. Application de régression linéaire et ACP pour identifier zones à fort potentiel.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-Learn</span>
+                        <span class="tech-tag">GeoPandas</span>
+                        <span class="tech-tag">ArcGIS</span>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card fade-in">
+                    <h3>Réseau AEP Boutaya</h3>
+                    <p>
+                        Conception complète d'un système d'eau potable pour 1100 habitants avec modélisation hydraulique 
+                        2D (EPANET), cartographie SIG (ArcGIS) et optimisation du tracé de réseau.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">EPANET</span>
+                        <span class="tech-tag">ArcGIS</span>
+                        <span class="tech-tag">AutoCAD</span>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card fade-in">
+                    <h3>Optimisation Systèmes d'Irrigation</h3>
+                    <p>
+                        Développement d'un cahier guide basé sur l'analyse de données terrain et cartographie SIG. 
+                        Amélioration de 33% de l'efficience hydrique par approche data-driven.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">SIG</span>
+                        <span class="tech-tag">Analyse de données</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Contact</div>
+                <h2 class="section-title">Me contacter</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:kephasdimitri@gmail.com">kephasdimitri@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <strong>Téléphone</strong>
+                            <a href="tel:+22673399199">+226 73 39 91 99</a>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">💼</div>
+                        <div>
+                            <strong>LinkedIn</strong>
+                            <a href="https://www.linkedin.com/in/dimitri-céphas-koalaga-1a798b335" target="_blank">Mon profil</a>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Localisation</strong>
+                            Ouagadougou, Burkina Faso
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/dimitri-céphas-koalaga-1a798b335" target="_blank">💼</a>
+            <a href="mailto:kephasdimitri@gmail.com">📧</a>
+        </div>
+        <p>&copy; 2025 Dimitri KOALAGA. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top">↑</div>
+
+    <script>
+        // Cursor glow effect
+        const cursorGlow = document.querySelector('.cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in on scroll with stagger
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, { 
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Scroll to top button
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Je vous répondrai rapidement.');
+            this.reset();
+        });
+
+        // Add parallax effect to orbs
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const orbs = document.querySelectorAll('.orb');
+            orbs.forEach((orb, index) => {
+                const speed = 0.5 + (index * 0.2);
+                orb.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
 </html>
